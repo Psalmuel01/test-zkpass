@@ -1,0 +1,30 @@
+{
+  "category": "Social",
+  "issuer": "linkedIn",
+  "desc": "Build and engage with the professional network.",
+  "website": "https://www.linkedin.com/mypreferences/d/categories/account",
+  "breakWall": true,
+  "APIs": [
+    {
+      "host": "www.linkedin.com",
+      "intercept": {
+        "url": "mysettings-api/settingsApiMiniProfile",
+        "method": "GET"
+      },
+      "assert": [
+        {
+          "key": "data|firstName",
+          "value": "1",
+          "operation": "!="
+        }
+      ],
+      "nullifier": "data|url"
+    }
+  ],
+  "HRCondition": [
+    "Charley, you must have a LinkeIn account"
+  ],
+  "tips": {
+    "message": "When you successfully log in, please click the 'Start' button to initiate the verification process."
+  }
+}
